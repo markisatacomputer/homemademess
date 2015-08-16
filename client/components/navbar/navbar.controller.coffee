@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'hmm2App'
-.controller 'NavbarCtrl', ($scope, $location, Auth, $resource, lodash, $q) ->
+.controller 'NavbarCtrl', ($scope, $location, Auth, $resource, lodash, $q, apiUrl) ->
   $scope.tags = []
   $scope.menu = [
     {
@@ -32,7 +32,7 @@ angular.module 'hmm2App'
     lodash.uniq lodash.map tags, '_id'
   
   #  Action to take when tags change
-  Images = $resource '/api/images'
+  Images = $resource apiUrl + '/images'
   $scope.redoSearch = () ->
     Images.get { tags: $scope.mapTags $scope.tags }, (result) ->
       $scope.view.images = result.images

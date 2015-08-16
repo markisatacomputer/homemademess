@@ -3,7 +3,7 @@
 'use strict'
 
 angular.module 'hmm2App'
-.factory 'socket', (socketFactory) ->
+.factory 'socket', (socketFactory, hmmConfig) ->
 
   # socket.io now auto-configures its connection when we omit a connection url
   ioSocket = io '',

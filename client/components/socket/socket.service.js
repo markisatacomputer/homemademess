@@ -2,10 +2,9 @@
 'use strict';
 
 angular.module('hmm2App')
-  .factory('socket', function(socketFactory) {
-
+  .factory('socket', ['apiUrl', 'socketFactory', function(apiUrl, socketFactory) {
     // socket.io now auto-configures its connection when we ommit a connection url
-    var ioSocket = io('http://api.homemademess.com', {
+    var ioSocket = io(apiUrl, {
       // Send auth token on connection, you will need to DI the Auth service above
       // 'query': 'token=' + Auth.getToken()
       path: '/socket.io-client'
@@ -130,8 +129,7 @@ angular.module('hmm2App')
         });
 
         socket.on('all:complete', function() {
-          var event = 'upload complete';
-          obj['saveAll'] = true;
+          var event = 'allDone';
           cb(event, id, obj);
         });
 
@@ -147,4 +145,4 @@ angular.module('hmm2App')
         socket.removeAllListeners(modelName + ':remove');
       }
     };
-  });
+  }]);

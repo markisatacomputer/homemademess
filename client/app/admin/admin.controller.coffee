@@ -1,14 +1,14 @@
 'use strict'
 
 angular.module 'hmm2App'
-.controller 'AdminCtrl', ($scope, Auth, $state, $resource, socket, $q) ->  
+.controller 'AdminCtrl', ($scope, Auth, $state, $resource, socket, $q, apiUrl) ->  
   ###
         DROPZONE
   ###
   $scope.filesInProgress = {}
   #   Config
   $scope.dropzoneConfig = {
-    url: 'http://api.homemademess.com/up'
+    url: apiUrl + '/up'
     previewsContainer: 'form.dropzone[name="image-details"]'
     parallelUploads: 1
     maxFileSize: 40
@@ -31,7 +31,6 @@ angular.module 'hmm2App'
     $ 'div.drop' 
     .removeClass 'over'
   $scope.fileAdd = (file) ->
-    $scope.filesInProgress.saveAll = false
     $scope.updateDZClass()
   $scope.updateDZClass = (file) ->
     images = $('div.drop form[name="image-details"]').children()
@@ -58,7 +57,7 @@ angular.module 'hmm2App'
     .removeClass 'ready'
     socket.syncUploadProgress imageId, $scope.filesInProgress, (event, itemID, obj) ->
       #  on complete, check to see if all files are done so we can show the save button
-      if event == 'upload complete'
+      if event == 'allDone'
         $ '#save-all'
         .addClass 'ready'
       else
@@ -111,8 +110,8 @@ angular.module 'hmm2App'
   $scope.imageDesc = ''
   $scope.tags
   $scope.allTags = {}
-  Tags = $resource 'http://api.homemademess.com/tags'
-  Auto = $resource 'http://api.homemademess.com/auto'
+  Tags = $resource apiUrl + '/tags'
+  Auto = $resource apiUrl + '/auto'
   $scope.ngo = { updateOn: 'default blur', debounce: { 'default': 500, 'blur': 0 } }
 
   #  Image Selection

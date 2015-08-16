@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module 'hmm2App'
-.factory 'User', ($resource) ->
-  $resource 'http://api.homemademess.com/users/:id/:controller',
+.factory 'User', ($resource, apiUrl) ->
+  $resource apiUrl + '/users/:id/:controller',
     id: '@_id'
   ,
     changePassword:

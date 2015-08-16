@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'hmm2App'
-.factory 'Auth', ($location, $rootScope, $http, User, $cookieStore, $q) ->
+.factory 'Auth', ($location, $rootScope, $http, User, $cookieStore, $q, apiUrl) ->
   currentUser = if $cookieStore.get 'token' then User.get() else {}
 
   ###
@@ -13,7 +13,7 @@ angular.module 'hmm2App'
   ###
   login: (user, callback) ->
     deferred = $q.defer()
-    $http.post 'http://api.homemademess.com/auth/local',
+    $http.post apiUrl + '/auth/local',
       email: user.email
       password: user.password
 

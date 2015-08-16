@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'hmm2App'
-.controller 'LoginCtrl', ($scope, Auth, $location, $window) ->
+.controller 'LoginCtrl', ($scope, Auth, $location, $window, apiUrl) ->
   $scope.user = {}
   $scope.errors = {}
   $scope.login = (form) ->
@@ -20,4 +20,4 @@ angular.module 'hmm2App'
         $scope.errors.other = err.message
 
   $scope.loginOauth = (provider) ->
-    $window.location.href = 'http://api.homemademess.com/auth/' + provider
+    $window.location.href = apiUrl + '/auth/' + provider
