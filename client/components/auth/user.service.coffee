@@ -2,7 +2,7 @@
 
 angular.module 'hmm2App'
 .factory 'User', ($resource) ->
-  $resource '/api/users/:id/:controller',
+  $resource 'http://api.homemademess.com/users/:id/:controller',
     id: '@_id'
   ,
     changePassword:

@@ -20,4 +20,4 @@ angular.module 'hmm2App'
         $scope.errors.other = err.message
 
   $scope.loginOauth = (provider) ->
-    $window.location.href = '/auth/' + provider
+    $window.location.href = 'http://api.homemademess.com/auth/' + provider

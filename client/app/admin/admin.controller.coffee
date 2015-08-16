@@ -8,7 +8,7 @@ angular.module 'hmm2App'
   $scope.filesInProgress = {}
   #   Config
   $scope.dropzoneConfig = {
-    url: '/up'
+    url: 'http://api.homemademess.com/up'
     previewsContainer: 'form.dropzone[name="image-details"]'
     parallelUploads: 1
     maxFileSize: 40
@@ -111,8 +111,8 @@ angular.module 'hmm2App'
   $scope.imageDesc = ''
   $scope.tags
   $scope.allTags = {}
-  Tags = $resource '/api/tags'
-  Auto = $resource '/api/auto'
+  Tags = $resource 'http://api.homemademess.com/tags'
+  Auto = $resource 'http://api.homemademess.com/auto'
   $scope.ngo = { updateOn: 'default blur', debounce: { 'default': 500, 'blur': 0 } }
 
   #  Image Selection

@@ -13,7 +13,7 @@ angular.module 'hmm2App'
   ###
   login: (user, callback) ->
     deferred = $q.defer()
-    $http.post '/auth/local',
+    $http.post 'http://api.homemademess.com/auth/local',
       email: user.email
       password: user.password
 
