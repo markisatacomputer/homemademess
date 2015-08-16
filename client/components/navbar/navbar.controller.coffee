@@ -38,6 +38,6 @@ angular.module 'hmm2App'
       $scope.view.images = result.images
 
   #  Autocomplete
-  Auto = $resource '/api/auto'
-  $scope.findTags = (query) ->
-    return Auto.query(query).$promise
+  Auto = $resource apiUrl + '/auto'
+  $scope.findTags = (value) ->
+    return Auto.query({q:value}).$promise
