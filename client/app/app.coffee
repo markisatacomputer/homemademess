@@ -11,6 +11,7 @@ angular.module 'hmm2App', [
   'ngTagsInput'
   'akoenig.deckgrid'
   'ngLodash'
+  'ngMaterial'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) ->
   $urlRouterProvider
