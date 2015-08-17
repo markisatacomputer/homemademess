@@ -10,7 +10,7 @@ div.navvy(ng-controller='NavbarCtrl', ng-class="{home: isActive('/')}")
 
       md-fab-actions
         div(ng-repeat="item in menu")
-          md-button(aria-label="{{item.label}}" class="md-fab md-raised md-mini" ng-click="item.action")
+          md-button(aria-label="{{item.label}}" class="md-fab md-raised md-mini" ng-click="this[item.action](item.args)")
             md-tooltip(md-direction="left") {{item.label}}
             md-icon.material-icons {{item.src}}
 

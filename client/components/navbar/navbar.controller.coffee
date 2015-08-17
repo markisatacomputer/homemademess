@@ -6,17 +6,17 @@ angular.module 'hmm2App'
     {
       label: 'Upload'
       src:   'cloud_upload'
-      action:  '/admin'
+      href:  '/admin'
     }
     {
       label: 'Settings'
       src:   'settings'
-      action:  '/users'
+      href:  '/users'
     }
     {
       label: 'Log Out'
       src:   'exit_to_app'
-      action:  $scope.logout
+      action:  'logout'
     }
   ]
   $scope.tags = []
@@ -40,6 +40,8 @@ angular.module 'hmm2App'
   $scope.loginOauth = (provider) ->
     $window.location.href = apiUrl + '/auth/' + provider
 
+  $scope.logout = ->
+    Auth.logout()
 
   $scope.loginDialog = () ->
     $mdDialog.show {
@@ -49,9 +51,6 @@ angular.module 'hmm2App'
       templateUrl: '../../app/account/login/login.html'
       controller: ($scope, $mdDialog) ->
     }
-
-  $scope.logout = ->
-    Auth.logout()
 
   $scope.isActive = (route) ->
     #console.log $location.path()
