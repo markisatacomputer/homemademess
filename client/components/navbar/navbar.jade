@@ -1,6 +1,6 @@
 div.navvy(ng-controller='NavbarCtrl', ng-class="{home: isActive('/')}")
   div#search
-    tags-input(ng-model="tags", title="Tags", placeholder="search by tag", replace-spaces-with-dashes="false", on-tag-added="redoSearch()", on-tag-removed="redoSearch()")
+    tags-input(ng-model="tags", title="Tags", placeholder="search by tag", replace-spaces-with-dashes="false", on-tag-added="redoSearch()", on-tag-removed="redoSearch()" ng-show="isActive('/')")
       auto-complete(source="findTags($query)")
   div.menu.container(ng-show='isAdmin()')
     md-fab-speed-dial.md-fling(md-open="false" md-direction="down")
