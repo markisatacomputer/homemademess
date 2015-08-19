@@ -4,6 +4,12 @@ angular.module 'hmm2App'
 .controller 'NavbarCtrl', ($scope, $location, Auth, $resource, $state, lodash, $q, $mdDialog, apiUrl) ->
   $scope.menu = [
     {
+      label: 'home'
+      src:   'home'
+      action: 'go'
+      arg:  'main'
+    }
+    {
       label: 'Upload'
       src:   'cloud_upload'
       action: 'go'
