@@ -1,17 +1,19 @@
 'use strict'
 
 angular.module 'hmm2App'
-.controller 'NavbarCtrl', ($scope, $location, Auth, $resource, lodash, $q, $mdDialog, apiUrl) ->
+.controller 'NavbarCtrl', ($scope, $location, Auth, $resource, $state, lodash, $q, $mdDialog, apiUrl) ->
   $scope.menu = [
     {
       label: 'Upload'
       src:   'cloud_upload'
-      href:  '/admin'
+      action: 'go'
+      arg:  'admin'
     }
     {
       label: 'Settings'
       src:   'settings'
-      href:  '/users'
+      action:  'go'
+      arg: 'settings'
     }
     {
       label: 'Log Out'
@@ -51,6 +53,9 @@ angular.module 'hmm2App'
       templateUrl: '../../app/account/login/login.html'
       controller: ($scope, $mdDialog) ->
     }
+
+  $scope.go = (there) ->
+    $state.go there
 
   $scope.isActive = (route) ->
     #console.log $location.path()

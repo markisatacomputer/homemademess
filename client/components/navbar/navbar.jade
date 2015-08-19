@@ -10,7 +10,7 @@ div.navvy(ng-controller='NavbarCtrl', ng-class="{home: isActive('/')}")
 
       md-fab-actions
         div(ng-repeat="item in menu")
-          md-button(aria-label="{{item.label}}" class="md-fab md-raised md-mini" ng-click="this[item.action](item.args)")
+          md-button(aria-label="{{item.label}}" class="md-fab md-raised md-mini" ng-click="this[item.action](item.arg)")
             md-tooltip(md-direction="left") {{item.label}}
             md-icon.material-icons {{item.src}}
 
@@ -19,4 +19,4 @@ div.navvy(ng-controller='NavbarCtrl', ng-class="{home: isActive('/')}")
       md-fab-trigger
         md-button(aria-label="Log In" class="md-fab" ng-click="loginDialog()")
           md-tooltip(md-direction="top") Log In
-          md-icon.material-icons account_circle
+          md-icon.material-icons vpn_key
