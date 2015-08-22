@@ -12,6 +12,7 @@ angular.module 'hmm2App', [
   'akoenig.deckgrid'
   'ngLodash'
   'ngMaterial'
+  'multipleSelection'
 ]
 .config ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) ->
   $urlRouterProvider

@@ -13,6 +13,7 @@ div(ng-include='"components/navbar/navbar.html"')
       +inputWrap("Tags")
         tags-input(ng-model="tags", title="Tags", replace-spaces-with-dashes="false", on-tag-added="tagAdded($tag)", on-tag-removed="tagRemoved($tag)")
           auto-complete(source="findTags($query)")
+
     .actionz
       +inputWrap("Actions")
         button(ng-click="removeSelected()" class="btn btn-danger btn-block" type="button" name="delete") Remove Selected
@@ -23,7 +24,7 @@ div(ng-include='"components/navbar/navbar.html"')
   .drop
     form.dropzone(enctype="multipart/form-data", ng-data, ng-dropzone, dropzone="dropzone", dropzone-config="dropzoneConfig")
       input(name="file", type="file", multiple)
-    form.dropzone(ng-data name="image-details")
+    form.dropzone(ng-data name="image-details" multiple-selection-zone)
 
 .container.debug.clearfix
   div {{files | json}}
