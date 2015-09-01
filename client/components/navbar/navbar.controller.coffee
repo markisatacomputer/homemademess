@@ -32,6 +32,7 @@ angular.module 'hmm2App'
   $scope.isAdmin = Auth.isAdmin
   $scope.user = {}
   $scope.errors = {}
+  $scope.navOpen = false
   
   $scope.login = (form) ->
     $scope.submitted = true
@@ -42,6 +43,7 @@ angular.module 'hmm2App'
         password: $scope.user.password
       .then ->
         $mdDialog.hide()
+        $scope.navOpen = true
       .catch (err) ->
         $scope.errors.other = err.message
 
