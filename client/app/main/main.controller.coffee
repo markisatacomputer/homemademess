@@ -36,17 +36,19 @@ angular.module 'hmm2App'
     $document.off 'keypress', $scope.keyup
 
   $scope.showSlide = (slide) ->
-    $scope.slide = $scope.view.images[slide]
-    $mdDialog.show {
-      clickOutsideToClose: true
-      scope: $scope
-      preserveScope: true
-      template: '<md-dialog aria-label="{{slide.filename}}">' +
-                    '  <md-dialog-content>' +
-                    '     <img src="{{slide.derivative[2].uri}}" width="{{vm.slide.derivative[2].width}}" class="img-responsive" />' +
-                    '  </md-dialog-content>' +
-                    '</md-dialog>'
-      controller: ($scope, $mdDialog) ->
-       $scope.closeDialog = () ->
-          $mdDialog.hide()
-    }
+    console.log window.innerWidth
+    if window.innerWidth > 459
+      $scope.slide = $scope.view.images[slide]
+      $mdDialog.show {
+        clickOutsideToClose: true
+        scope: $scope
+        preserveScope: true
+        template: '<md-dialog aria-label="{{slide.filename}}">' +
+                      '  <md-dialog-content>' +
+                      '     <img src="{{slide.derivative[2].uri}}" width="{{vm.slide.derivative[2].width}}" class="img-responsive" />' +
+                      '  </md-dialog-content>' +
+                      '</md-dialog>'
+        controller: ($scope, $mdDialog) ->
+         $scope.closeDialog = () ->
+            $mdDialog.hide()
+      }
