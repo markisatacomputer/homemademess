@@ -43,7 +43,7 @@ angular.module 'hmm2App'
         clickOutsideToClose: true
         scope: $scope
         preserveScope: true
-        template: '<md-dialog aria-label="{{slide.filename}}">' +
+        template: '<md-dialog aria-label="{{slide.filename}}" class="slide">' +
                       '  <md-dialog-content>' +
                       '     <img src="{{slide.derivative[2].uri}}" width="{{vm.slide.derivative[2].width}}" class="img-responsive" />' +
                       '  </md-dialog-content>' +
