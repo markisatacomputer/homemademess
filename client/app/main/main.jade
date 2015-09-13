@@ -3,7 +3,7 @@ div(ng-include='"components/navbar/navbar.html"')
 .container
   .deckgrid(deckgrid, source='view.images')
     div.image(ng-class='{{card.tags}}')
-      img.img-responsive(src='{{card.derivative[0].uri}}' ng-click='mother.showSlide(card.$index)')
+      img.img-responsive(src='{{card.derivative[0].uri}}' ng-click='mother.showSlide(card.$index)' width="{{card.derivative[0].width}}" height="{{card.derivative[0].height}}")
 
 footer.footer
   .container
