@@ -31,7 +31,7 @@ angular.module 'hmm2App', [
   # Intercept 401s and redirect you to login
   responseError: (response) ->
     if response.status is 401
-      $location.path '/login'
+      $location.path '/'
       # remove any stale tokens
       $cookieStore.remove 'token'
 
