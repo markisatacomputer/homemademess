@@ -7,3 +7,7 @@ angular.module 'hmm2App'
     url: '/'
     templateUrl: 'app/main/main.html'
     controller: 'MainCtrl'
+  .state 'main.tagged',
+    url: '/tagged/:tag'
+    templateUrl: 'app/main/main.tagged.html'
+    controller: 'TaggedCtrl'
