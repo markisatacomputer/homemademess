@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module 'hmm2App'
-.controller 'TaggedCtrl', ($scope, $http, $stateParams, socket, apiUrl, $mdDialog, $document) ->
+.controller 'TaggedCtrl', ($scope, $http, $stateParams, apiUrl, $mdDialog, $document) ->
   # init view
   $scope.view = {}
   $scope.slide = {}
@@ -11,11 +11,6 @@ angular.module 'hmm2App'
     $scope.view.images = result.images
     $scope.view.tags = result.tags
     $scope.view.offset = 0;
-
-  ###  This comes later - should we have inline editing
-  $scope.$on '$destroy', ->
-    socket.unsyncUpdates 'thing'
-  ###
   
   $scope.keyup = (e) ->
     if e.keyCode
@@ -37,7 +32,6 @@ angular.module 'hmm2App'
     $document.off 'keypress', $scope.keyup
 
   $scope.showSlide = (slide) ->
-    console.log window.innerWidth
     if window.innerWidth > 459
       $scope.slide = $scope.view.images[slide]
       $mdDialog.show {

@@ -13,6 +13,10 @@ div(ng-include='"components/navbar/navbar.html"')
       +inputWrap("Tags")
         tags-input(ng-model="tags", title="Tags", replace-spaces-with-dashes="false", on-tag-added="tagAdded($tag)", on-tag-removed="tagRemoved($tag)")
           auto-complete(source="findTags($query)")
+    .collectionz
+      +inputWrap("Collections")
+        tags-input(ng-model="tags", title="Tags", replace-spaces-with-dashes="false", on-tag-added="collectionAdded($tag)", on-tag-removed="collectionRemoved($tag)")
+          auto-complete(source="findCollections($query)")
 
     .actionz
       +inputWrap("Actions")
